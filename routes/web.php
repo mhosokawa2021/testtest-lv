@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TweetController;
+use App\Http\Controllers\TweetController; // 追記
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,14 @@ use App\Http\Controllers\TweetController;
 |
 */
 
+// Routeを置き換え 開始
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 
-Route::get('/hello', function () {
-     return view('hello');
- });
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
+});
+// Routeを置き換え 終了
 
-Route::get('/tweets', [TweetController::class, 'index']);
+require __DIR__.'/auth.php';
