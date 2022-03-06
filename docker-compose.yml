@@ -26,6 +26,18 @@ services:
             - redis
             - meilisearch
             - selenium
+    phpmyadmin:
+        image: 'phpmyadmin/phpmyadmin' # phpmyadmin のイメージを持ってきてね
+        links:
+            - 'mysql:mysql' # mysqlコンテナと紐付けてね
+        ports:
+            - 8080:80 # 8080ポートで起動してね
+        environment: # 環境変数
+            PMA_HOST: mysql # mysqlコンテナがホストだよ
+            PMA_USER: '${DB_USERNAME}' # ユーザ名
+            PMA_PASSWORD: '${DB_PASSWORD}' # パスワード
+        networks:
+            - sail # sail の中で動作してるよ
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
