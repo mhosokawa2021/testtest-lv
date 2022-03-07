@@ -4,6 +4,7 @@
 
  use Illuminate\Http\Request;
  use App\Models\Tweet;
+ use App\Models\Tag; // 追記忘れず！！
 
  class TweetController extends Controller
  {
@@ -12,14 +13,21 @@
       *
       * @return \Illuminate\Http\Response
       */
-     public function index()
-     {
-        $tweets = Tweet::all(); // tweetsデータベースの中身を全件取得
+    public function index()
+    {
+    $tweets = Tweet::with(['user','tags'])->orderBy('created_at', 'desc')->get();
+    $tags = Tag::all();
+    
+        return view('tweets', [
+            'tweets' => $tweets,
+            'tags' => $tags // 追記
+        ]);
+    }
 
-         return view('tweets', [
-             'tweets' => $tweets
-         ]);
-     }
+    public function search(Request $request)
+    {
+        dd($request->keyword); // 一旦開通確認をするため ddd()を表示させる
+    }
 
      /**
       * Show the form for creating a new resource.
@@ -43,6 +51,7 @@
             'message' => $request->message,
             'user_id' => auth()->user()->id // 追記
         ]);
+         $tweet->tags()->attach($request->tags); // 追記
         return redirect()->route('tweets.index');
     }
 

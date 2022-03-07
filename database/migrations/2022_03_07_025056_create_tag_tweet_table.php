@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('tag_tweet', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('tag_id')->constrained();
+            $table->foreignId('tweet_id')->constrained();
+            $table->timestamps(); // タイムスタンプなくてもOKです。今回は残しておきます
         });
     }
 

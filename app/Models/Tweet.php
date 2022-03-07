@@ -17,4 +17,9 @@ class Tweet extends Model
     {
         return $this->belongsTo(User::class); // ツイートはユーザを１つ持てる
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 30); // VARCHAR(30) 30文字まで格納可能
             $table->timestamps();
         });
     }

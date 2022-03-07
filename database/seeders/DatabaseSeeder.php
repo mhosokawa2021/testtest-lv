@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User; // 追記
 use App\Models\Tweet; // 追記
+use App\Models\Tag; // 追記忘れずに！
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,19 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         // 追記開始
+
+        Tag::create([
+            'name' => 'ライフハック'
+        ]);
+
+        Tag::create([
+            'name' => 'エッセイ'
+        ]);
+
+        Tag::create([
+            'name' => 'お知らせ'
+        ]);
+
         User::create([
             'name' => 'テストユーザ',
             'email' => 'test@example.com',
