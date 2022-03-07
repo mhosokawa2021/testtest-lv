@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
+    Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
 });
 // Routeを置き換え 終了
 

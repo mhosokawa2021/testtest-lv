@@ -37,10 +37,14 @@
       * @param  \Illuminate\Http\Request  $request
       * @return \Illuminate\Http\Response
       */
-     public function store(Request $request)
-     {
-         //
-     }
+		public function store(Request $request)
+    {
+        $tweet = Tweet::create([
+            'message' => $request->message,
+            'user_id' => auth()->user()->id // 追記
+        ]);
+        return redirect()->route('tweets.index');
+    }
 
      /**
       * Display the specified resource.
