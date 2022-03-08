@@ -26,6 +26,9 @@
 
 public function search(Request $request)
 {
+    if(!$request->has('keyword')) {
+        return redirect('/tweets');
+    }
     $keyword = $request->keyword;
  $tweets = Tweet::with(['user', 'tags']) // 追記
     ->where('message', 'LIKE', '%'.$keyword.'%')
@@ -57,10 +60,11 @@ public function search(Request $request)
       */
 		public function store(Request $request)
     {
-        $tweet = Tweet::create([
-            'message' => $request->message,
-            'user_id' => auth()->user()->id // 追記
+        $validated = $request->validate([
+            'message' => 'required'
         ]);
+        $validated['user_id'] = auth()->user()->id;
+        $tweet = Tweet::create($validated);
          $tweet->tags()->attach($request->tags); // 追記
         return redirect()->route('tweets.index');
     }
