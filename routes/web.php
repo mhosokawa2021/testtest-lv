@@ -23,6 +23,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
     Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
     Route::get('search', [TweetController::class, 'search']);
+    Route::get('/tweets/{tweet}/edit', [TweetController::class, 'edit'])->name('tweets.edit');
+    Route::put('/tweets/{tweet}', [TweetController::class, 'update'])->name('tweets.update');
+    Route::delete('/tweets/{tweet}', [TweetController::class, 'destroy'])->name('tweets.destroy');
 });
 // Routeを置き換え 終了
 

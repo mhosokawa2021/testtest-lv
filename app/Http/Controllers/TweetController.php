@@ -31,7 +31,7 @@ public function search(Request $request)
     ->where('message', 'LIKE', '%'.$keyword.'%')
     ->orderBy('created_at', 'desc') // 追記
     ->get();
-    
+
 		// ddd()を削除して下記を追記
     return view('search', [
         'tweets' => $tweets,
@@ -82,10 +82,16 @@ public function search(Request $request)
       * @param  int  $id
       * @return \Illuminate\Http\Response
       */
-     public function edit($id)
-     {
-         //
-     }
+public function edit(Tweet $tweet) // ここも $idから書き変わっている点注意！
+{
+    $tags = Tag::all();
+    $selectedTags = $tweet->tags->pluck('id')->toArray();
+    return view('edit', [
+        'tweet' => $tweet,
+        'tags' => $tags,
+        'selectedTags' => $selectedTags,
+    ]);
+}
 
      /**
       * Update the specified resource in storage.
@@ -94,10 +100,16 @@ public function search(Request $request)
       * @param  int  $id
       * @return \Illuminate\Http\Response
       */
-     public function update(Request $request, $id)
-     {
-         //
-     }
+public function update(Request $request, Tweet $tweet) // ここも変わってる点注意！
+{
+		// ツイートのメッセージ内容を更新
+    $tweet->update([
+        'message' => $request->message,
+    ]);
+		// ツイートに紐づいているタグを更新
+    $tweet->tags()->sync($request->tags);
+    return redirect()->route('tweets.index');
+}
 
      /**
       * Remove the specified resource from storage.
@@ -105,8 +117,10 @@ public function search(Request $request)
       * @param  int  $id
       * @return \Illuminate\Http\Response
       */
-     public function destroy($id)
-     {
-         //
-     }
+    public function destroy(Tweet $tweet)
+    {
+        $tweet->tags()->detach();
+        $tweet->delete();
+        return redirect()->route('tweets.index');
+    }
  }
