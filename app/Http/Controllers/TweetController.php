@@ -24,10 +24,20 @@
         ]);
     }
 
-    public function search(Request $request)
-    {
-        dd($request->keyword); // 一旦開通確認をするため ddd()を表示させる
-    }
+public function search(Request $request)
+{
+    $keyword = $request->keyword;
+ $tweets = Tweet::with(['user', 'tags']) // 追記
+    ->where('message', 'LIKE', '%'.$keyword.'%')
+    ->orderBy('created_at', 'desc') // 追記
+    ->get();
+    
+		// ddd()を削除して下記を追記
+    return view('search', [
+        'tweets' => $tweets,
+        'keyword' => $keyword
+    ]);
+}
 
      /**
       * Show the form for creating a new resource.
