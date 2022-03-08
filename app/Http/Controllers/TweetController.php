@@ -84,6 +84,7 @@ public function search(Request $request)
       */
 public function edit(Tweet $tweet) // ここも $idから書き変わっている点注意！
 {
+    $this->authorize('update', $tweet); // 追記
     $tags = Tag::all();
     $selectedTags = $tweet->tags->pluck('id')->toArray();
     return view('edit', [
@@ -103,6 +104,7 @@ public function edit(Tweet $tweet) // ここも $idから書き変わってい�
 public function update(Request $request, Tweet $tweet) // ここも変わってる点注意！
 {
 		// ツイートのメッセージ内容を更新
+    $this->authorize('update', $tweet); // 追記
     $tweet->update([
         'message' => $request->message,
     ]);
@@ -119,6 +121,7 @@ public function update(Request $request, Tweet $tweet) // ここも変わって�
       */
     public function destroy(Tweet $tweet)
     {
+        $this->authorize('update', $tweet); // 追記
         $tweet->tags()->detach();
         $tweet->delete();
         return redirect()->route('tweets.index');

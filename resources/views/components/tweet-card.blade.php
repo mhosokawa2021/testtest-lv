@@ -5,18 +5,22 @@
             <span style="font-size: 0.8rem;">{{ $tweet->created_at }}</span>
         </p>
 				<!-- 追記ここから -->
-        <div class="d-flex" style="z-index:2">
-            <a href="/tweets/{{$tweet->id}}/edit"  class="btn btn-floating shadow-0" >
-                <i class="fas fa-edit fa-lg"></i>
-            </a>
-            <form action="/tweets/{{$tweet->id}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-floating shadow-0">
-                    <i class="fas fa-trash fa-lg"></i>
-                </button>
-            </form>
-        </div>
+<div class="d-flex" style="z-index:2">
+    @can('update', $tweet)
+        <a href="/tweets/{{$tweet->id}}/edit"  class="btn btn-floating shadow-0" >
+            <i class="fas fa-edit fa-lg"></i>
+        </a>
+    @endcan
+    @can('delete', $tweet)
+        <form action="/tweets/{{$tweet->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-floating shadow-0">
+                <i class="fas fa-trash fa-lg"></i>
+            </button>
+        </form>
+    @endcan
+</div>
 				<!-- 追記ここまで -->
     </div>
     <p class="card-text">
