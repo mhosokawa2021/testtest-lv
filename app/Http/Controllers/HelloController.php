@@ -51,7 +51,7 @@ class HelloController extends Controller
             $array_words = preg_split('/\s+/ui', $word, -1, PREG_SPLIT_NO_EMPTY);//スペース区切りでキーワードを配列に変換
             foreach ($array_words as $w) {
                 $escape_word = addcslashes($w, '\\_%');//エスケープ処理
-                $query = $query->where(DB::raw("CONCAT(project_title, ' ', project_text)"), 'like', '%' . $escape_word . '%');//like検索
+                $query = $query->where(DB::raw("CONCAT(plan_title, ' ', plan_text)"), 'like', '%' . $escape_word . '%');//like検索
             }
         }
         $articles = $query->get();//クエリビルダーの結果をゲット($wordがない場合全て取得)

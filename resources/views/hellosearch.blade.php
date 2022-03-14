@@ -9,9 +9,9 @@
                         <p>{{ $articles->count() }} 件の結果が見つかりました</p>
                           @foreach($articles as $article)
                             <div class="shadow-sm bg-white rounded mt-2">
-                              <h3>タイトル：{{ $article->project_title }}</h3>
+                              <h3>タイトル：{{ $article->plan_title }}</h3>
                               <h4>投稿者：{{ $article->user->name }}</h4>
-                                {{ $article->project_text }}
+                                {{ $article->plan_text }}
                             </div>
                           @endforeach
                       @else
