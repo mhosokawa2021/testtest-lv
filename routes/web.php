@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TweetController; // 追記
+use App\Http\Controllers\HelloController; // 追記
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,12 @@ use App\Http\Controllers\TweetController; // 追記
 */
 
 // Routeを置き換え 開始
+Route::get('/hello', function () {
+    return view('hello');
+});
+// 検索お試し
+Route::get('/hello/search', [HelloController::class, 'search'])->name('hello.search');
+
 Route::get('/', function () {
     return view('top');
 });

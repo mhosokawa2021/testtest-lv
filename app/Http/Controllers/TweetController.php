@@ -30,7 +30,7 @@ public function search(Request $request)
         return redirect('/tweets');
     }
     $keyword = $request->keyword;
- $tweets = Tweet::with(['user', 'tags']) // 追記
+    $tweets = Tweet::with(['user', 'tags']) // 追記
     ->where('message', 'LIKE', '%'.$keyword.'%')
     ->orderBy('created_at', 'desc') // 追記
     ->get();

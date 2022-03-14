@@ -37,10 +37,28 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'password' => bcrypt('password'),
         ]);
+        
+        User::create([
+            'name' => 'テストユーザ-2',
+            'email' => 'test@example-2.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        User::create([
+            'name' => 'テストユーザ-3',
+            'email' => 'test@example-3.com',
+            'password' => bcrypt('password'),
+        ]);
 
         User::create([
             'name' => 'ぼやき太郎',
             'email' => 'boyaki@example.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        User::create([
+            'name' => 'ぼやき次郎',
+            'email' => 'boyaki@example2.com',
             'password' => bcrypt('password'),
         ]);
 
@@ -53,6 +71,9 @@ class DatabaseSeeder extends Seeder
             'message' => 'ぼやき太郎による投稿',
             'user_id' => 2
         ]);
+
+         $this->call(PlansTableSeeder::class);
+         $this->call(CreatorsTableSeeder::class);
         // 追記終了
     }
 }

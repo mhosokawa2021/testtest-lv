@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tweet::class); // ユーザはツイートを複数持てる
     }
+
+    public function plants() 
+    {
+        return $this->hasMany(Plan::class); // ユーザはプロジェクトを複数持てる
+    }
+
+    public function creator()
+    {
+        return $this->hasOne(Creator::class); // ユーザはクリエイターを１つ持つ
+    }
 }
