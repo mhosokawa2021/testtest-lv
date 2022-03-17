@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->hasMany(Plan::class); // ユーザはプロジェクトを複数持てる
     }
 
+    public function planMessages() 
+    {
+        return $this->hasMany(PlanMessage::class); // ユーザはPlanMessageを複数持てる
+    }
+
     public function creator()
     {
         return $this->hasOne(Creator::class); // ユーザはクリエイターを１つ持つ

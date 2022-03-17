@@ -13,4 +13,11 @@ class Plan extends Model
     {
         return $this->belongsTo(User::class); // プロジェクト計画はユーザを１つ持てる
     }
+    /**
+     * クリエイターidの取得
+     */
+    public function userCreator()
+    {
+        return $this->hasOneThrough(Creator::class, User::class); // planはuserを中継して一つのcreatorを持つ
+    }
 }

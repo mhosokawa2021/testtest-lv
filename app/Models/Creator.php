@@ -13,4 +13,8 @@ class Creator extends Model
     {
         return $this->hasOne(User::class); // クリエイターはユーザを１つ持つ
     }
+    public function creatorPlan()
+    {
+        return $this->hasMany(CreatorPlan::class); 
+    }
 }

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TweetController; // 追記
 use App\Http\Controllers\HelloController; // 追記
+use App\Http\Controllers\PlanController; // 追記
+use App\Http\Controllers\CreatorController; // 追記
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +24,10 @@ Route::get('/hello', function () {
 });
 // 検索お試し
 Route::get('/hello/search', [HelloController::class, 'search'])->name('hello.search');
+// Plan詳細
+Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
+// Creator詳細
+Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');
 
 Route::get('/', function () {
     return view('top');

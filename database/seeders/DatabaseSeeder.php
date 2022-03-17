@@ -72,8 +72,14 @@ class DatabaseSeeder extends Seeder
             'user_id' => 2
         ]);
 
+        // planデータ
          $this->call(PlansTableSeeder::class);
          $this->call(CreatorsTableSeeder::class);
-        // 追記終了
+         // planへのコメント
+         $this->call(PlanMessagesTableSeeder::class);
+        //creatorplan (1)
+         $this->call(CreatorPlanTableSeeder::class);
+         // creatorplan procs(2)
+         $this->call(CreatorPlanProcsTableSeeder::class);
     }
 }

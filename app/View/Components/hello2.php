@@ -8,7 +8,7 @@ class hello2 extends Component
 {
     public $type;
 
-    public function __construct($type = null)
+    public function __construct($type = 'creator')
     {
         $this->type = $type;
     }

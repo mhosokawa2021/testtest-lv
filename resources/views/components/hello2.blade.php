@@ -95,7 +95,7 @@
 </nav>
 
 <div class="flex flex-wrap bg-gray-200">
-  <div class="w-64 text-gray-700 text-center bg-orange-500"> 
+  <div class="w-64 text-gray-700 text-center bg-white"> 
     <div class="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
       <div class="sticky top-20">
         <h2 class="text-xs text-left font-semibold text-gray-800 dark:text-white">DASH BOARD</h2>
