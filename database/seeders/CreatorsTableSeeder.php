@@ -30,5 +30,10 @@ class CreatorsTableSeeder extends Seeder
             'creator_text' => 'クリエイター太郎03の説明',
             'user_id' => 3
         ]);
+        Creator::create([
+            'creator_name' => 'しろう',
+            'creator_text' => 'クリエイター04の説明',
+            'user_id' => 4
+        ]);
     }
 }

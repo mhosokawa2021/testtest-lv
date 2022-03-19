@@ -17,4 +17,13 @@ class Creator extends Model
     {
         return $this->hasMany(CreatorPlan::class); 
     }
+
+    public function planRequests() 
+    {
+        return $this->hasMany(PlanRequest::class); // ユーザはPlanRequestを複数持てる
+    }
+    public function projects() 
+    {
+        return $this->hasMany(Project::class); // ユーザはPlanRequestを複数持てる
+    }
 }

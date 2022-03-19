@@ -75,11 +75,24 @@ class DatabaseSeeder extends Seeder
         // planデータ
          $this->call(PlansTableSeeder::class);
          $this->call(CreatorsTableSeeder::class);
-         // planへのコメント
+        // planへのコメント
          $this->call(PlanMessagesTableSeeder::class);
-        //creatorplan (1)
+        // creatorplan (1)
          $this->call(CreatorPlanTableSeeder::class);
-         // creatorplan procs(2)
+        // creatorplan procs(2)
          $this->call(CreatorPlanProcsTableSeeder::class);
+
+         // イラスト依頼関係
+         // 自由依頼 リクエスト
+         $this->call(FreeRequestsTableSeeder::class);
+         $this->call(FreeRequestProcsTableSeeder::class);
+         
+         // プラン依頼 リクエスト
+         $this->call(PlanRequestsTableSeeder::class);
+         // プロジェクトデータ(Tabeleって名前ついてないけど理由はない)
+         $this->call(ProjectsSeeder::class);
+         $this->call(ProjectProcsSeeder::class);
+         // プロジェクトメッセージ
+         $this->call(ProjectMessageTableSeeder::class);
     }
 }

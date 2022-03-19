@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CreatorPlan extends Model
+class PlanRequest extends Model
 {
     use HasFactory;
-    public function creatorPlanProc() 
+    public function user()
     {
-        return $this->hasMany(CreatorPlanProc::class);
+        return $this->belongsTo(User::class); // ユーザーに所属する
     }
     
     public function creator()
@@ -18,8 +18,8 @@ class CreatorPlan extends Model
         return $this->belongsTo(Creator::class); // クリエイターに所属する
     }
 
-    public function planRequests() 
+    public function creatorPlan()
     {
-        return $this->hasMany(PlanRequest::class); // ユーザはPlanRequestを複数持てる
+        return $this->belongsTo(CreatorPlan::class); // creatorPlanProcはcreatorPlanを一つ持つ
     }
 }
