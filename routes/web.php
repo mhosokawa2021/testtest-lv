@@ -19,21 +19,23 @@ use App\Http\Controllers\CreatorController; // 追記
 */
 
 // Routeを置き換え 開始
-Route::get('/hello', function () {
-    return view('hello');
-});
-// 検索お試し
-Route::get('/hello/search', [HelloController::class, 'search'])->name('hello.search');
-// Plan詳細
-Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
-// Creator詳細
-Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');
+// Route::get('/hello', function () {
+//     return view('hello');
+// });
 
 Route::get('/', function () {
     return view('top');
 });
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/hello', [HelloController::class, 'index'])->name('hello.index');
+    // 検索お試し
+    Route::get('/hello/search', [HelloController::class, 'search'])->name('hello.search');
+    // Plan詳細
+    Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
+    // Creator詳細
+    Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');
+
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
     Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
     Route::get('search', [TweetController::class, 'search']);
