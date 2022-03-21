@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CreatorPlan;
+use App\Models\CreatorPlanProc;
 use Illuminate\Http\Request;
 
 class CreatorPlanController extends Controller
@@ -15,6 +16,22 @@ class CreatorPlanController extends Controller
     public function index()
     {
         //
+    }
+
+    public function request($creator_id,$plan_id)
+    {
+        $plan = CreatorPlan::all()->find($plan_id);
+        $plan_proc = CreatorPlanProc::where('creator_plan_id', '=', $plan_id)->get();
+        // $plan = Plan::with(['user'])->find($id);
+        // $plan_msg = PlanMessage::where('plan_id', '=', $id)->get();
+
+        // dd($creator_id,$plan_id);
+        return view('creator.request.show', [
+            'creator_id' => $creator_id,
+            'plan_id'=> $plan_id,
+            'plan_proc' => $plan_proc,
+            'plan' => $plan
+        ]);
     }
 
     /**

@@ -35,7 +35,7 @@ class PlanRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //ここに登録
     }
 
     /**

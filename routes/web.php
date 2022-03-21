@@ -5,6 +5,8 @@ use App\Http\Controllers\TweetController; // 追記
 use App\Http\Controllers\HelloController; // 追記
 use App\Http\Controllers\PlanController; // 追記
 use App\Http\Controllers\CreatorController; // 追記
+use App\Http\Controllers\DashboardController; // 追記
+use App\Http\Controllers\CreatorPlanController;
 
 
 /*
@@ -28,17 +30,23 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/hello', [HelloController::class, 'index'])->name('hello.index');
-    // 検索お試し
-    Route::get('/hello/search', [HelloController::class, 'search'])->name('hello.search');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/search', [DashboardController::class, 'search'])->name('dashboard.search');
+
+    // Route::get('/hello', [HelloController::class, 'index'])->name('hello.index');
+    // // 検索お試し
+    // Route::get('/hello/search', [HelloController::class, 'search'])->name('hello.search');
+
     // Plan詳細
     Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
     // Creator詳細
     Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');
+    // creator_plan
+    Route::get('/request/creator-{creator_id}/plan-{plan_id}', [CreatorPlanController::class, 'request'])->name('creator_plan.request');
 
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
     Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
-    Route::get('search', [TweetController::class, 'search']);
+    Route::get('/mysearch', [TweetController::class, 'search']);
     Route::get('/tweets/{tweet}/edit', [TweetController::class, 'edit'])->name('tweets.edit');
     Route::put('/tweets/{tweet}', [TweetController::class, 'update'])->name('tweets.update');
     Route::delete('/tweets/{tweet}', [TweetController::class, 'destroy'])->name('tweets.destroy');

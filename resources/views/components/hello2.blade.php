@@ -27,7 +27,7 @@
       <img src="https://placehold.jp/50x50.png" class="mr-3 h-6 sm:h-10" alt="Flowbite Logo">
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Plzpic</span>
     </a>
-      <form method="GET" action="{{ route('hello.search') }}">
+      <form method="GET" action="{{ route('dashboard.search') }}">
         @csrf
         <div class="flex items-center">
           <div class="hidden relative md:mr-0 md:block">
