@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PlanRequest extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'creator_id',
+        'creator_plan_id',
+        'message',
+        'is_finished',
+        'is_canceled'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class); // ユーザーに所属する

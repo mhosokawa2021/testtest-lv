@@ -10,10 +10,17 @@
             @foreach($plan_proc as $proc)
                 <div>{{$proc->proc_name}}<div>
             @endforeach
-             <button 
-                onclick=""
-                class="px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500">この条件で依頼する
-            </button>
+            <form action="/request/c{{ $creator_id }}/p{{ $plan_id }}/result" method="POST" >
+                @csrf
+                <textarea class="block mx-auto" id="" rows="4" name="message"></textarea>
+                <button type='submit'
+                class="px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500"
+                >この条件で依頼する</button>
+                <!-- <button 
+                    onclick=""
+                    class="px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500">この条件で依頼する
+                </button> -->
+            </form>
         </div>
       </div>
     </div>

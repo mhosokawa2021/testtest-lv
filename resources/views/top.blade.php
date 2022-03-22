@@ -27,7 +27,7 @@
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
                                 <div class="mb-6">
-                                    <a href="{{ route('hello.index') }}"  class="btn btn-primary btn-rounded font-weight-bold btn-lg" style="width: 200px;">
+                                    <a href="{{ route('dashboard.index') }}"  class="btn btn-primary btn-rounded font-weight-bold btn-lg" style="width: 200px;">
                                         管理画面へ
                                     </a>
                                 </div>

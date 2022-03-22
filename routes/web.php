@@ -7,6 +7,7 @@ use App\Http\Controllers\PlanController; // 追記
 use App\Http\Controllers\CreatorController; // 追記
 use App\Http\Controllers\DashboardController; // 追記
 use App\Http\Controllers\CreatorPlanController;
+use App\Http\Controllers\PlanRequestController;
 
 
 /*
@@ -42,7 +43,10 @@ Route::group(['middleware' => ['auth']], function() {
     // Creator詳細
     Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');
     // creator_plan
-    Route::get('/request/creator-{creator_id}/plan-{plan_id}', [CreatorPlanController::class, 'request'])->name('creator_plan.request');
+    Route::get('/request/c{creator_id}/p{plan_id}', [CreatorPlanController::class, 'request'])->name('creator_plan.request');
+    // プラン登録
+    Route::post('/request/c{creator_id}/p{plan_id}/result', [PlanRequestController::class, 'store'])->name('request.store');
+
 
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
     Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');

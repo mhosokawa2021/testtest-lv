@@ -33,9 +33,19 @@ class PlanRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$creator_id,$plan_id)
     {
         //ここに登録
+        $planRequest = PlanRequest::create([
+            'user_id' => auth()->user()->id,
+            'creator_id' => $creator_id,
+            'creator_plan_id' => $plan_id,
+            'message' => $request->message,
+            'is_finished' => 0,
+            'is_canceled' => 0
+        ]);
+        
+        return redirect()->route('dashboard.index');
     }
 
     /**

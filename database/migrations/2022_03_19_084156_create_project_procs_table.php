@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('project_procs', function (Blueprint $table) {
             $table->id();
-		    $table->integer('sort_order');
+		    $table->integer('proc_name_order');
 		    $table->string('proc_name');
 		    $table->text('img_url');
+            $table->integer('sort_order');
 	    	$table->boolean('is_checked');
 	    	$table->boolean('is_canceled');
 		    $table->foreignId('project_id')->constrained();
