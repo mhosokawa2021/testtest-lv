@@ -43,14 +43,16 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Creator詳細
     Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');
-    // creator_plan
-    Route::get('/request/c{creator_id}/p{plan_id}', [CreatorPlanController::class, 'request'])->name('creator_plan.request');
+    // Plan経由リクエスト
+    Route::get('/request/creator={creator_id}/plan={plan_id}', [CreatorPlanController::class, 'request'])->name('creator_plan.request');
    
     // PlanRequest
     // プラン登録
-    Route::post('/request/c{creator_id}/p{plan_id}/result', [PlanRequestController::class, 'store'])->name('request.store');
+    Route::post('/request/creator={creator_id}/plan={plan_id}/result', [PlanRequestController::class, 'store'])->name('request.store');
     // 一覧取得
     Route::get('/request/user/', [PlanRequestController::class, 'show'])->name('user-requests.show');
+    // 自由依頼リクエスト
+    Route::get('/frequest/creator={creator_id}', [PlanRequestController::class, 'request'])->name('free_requests.request');
 
 
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');

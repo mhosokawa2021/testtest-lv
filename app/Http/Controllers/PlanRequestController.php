@@ -29,6 +29,10 @@ class PlanRequestController extends Controller
         //
     }
 
+    public function request(){
+        return view('creator.frequest.postreq');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

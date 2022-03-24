@@ -8,11 +8,15 @@
             <p>{{ $creator->creator_name }}</p>
             <p>{{ $creator->creator_text }}</p>
         </div>
+        <button
+        onclick="window.location='{{ route('free_requests.request',['creator_id'=>$creator->id]) }}'" 
+        class="px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500">自由依頼</button>
          @foreach($creator_plans as $plan)
          <div class="m-3">
-           {{$plan->id}}
-           {{$plan->creator_id}}
-    <button onclick="window.location='{{ route('creator_plan.request',['creator_id'=>$plan->creator_id, 'plan_id'=>$plan->id]) }}'" class="px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500">{{ $plan->creator_plan_name }}</button>
+  <button 
+    onclick="window.location='{{ route('creator_plan.request',['creator_id'=>$plan->creator_id, 'plan_id'=>$plan->id]) }}'" 
+    class="px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500">{{ $plan->creator_plan_name }}
+  </button>
 </div>
             
         @endforeach
