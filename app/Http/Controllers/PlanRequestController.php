@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PlanRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\PlanRequest;
+use App\Models\FreeRequest;
 
 class PlanRequestController extends Controller
 {
@@ -56,7 +58,18 @@ class PlanRequestController extends Controller
      */
     public function show(PlanRequest $planRequest)
     {
-        //
+        //ここに依頼一覧
+        $user_id = auth()->user()->id;
+        
+        $PlanReq = PlanRequest::where('user_id',"=",$user_id)
+        ->Where('is_finished', '<>', 1)
+        ->Where('is_canceled', '<>', 1)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('dashboard.request.reqshow',[
+            'articles' => $PlanReq 
+        ]);
     }
 
     /**

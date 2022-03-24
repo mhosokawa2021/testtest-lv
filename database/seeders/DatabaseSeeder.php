@@ -89,6 +89,7 @@ class DatabaseSeeder extends Seeder
          
          // プラン依頼 リクエスト
          $this->call(PlanRequestsTableSeeder::class);
+         $this->call(PlanRequestProcTableSeeder::class);
          // プロジェクトデータ(Tabeleって名前ついてないけど理由はない)
          $this->call(ProjectsSeeder::class);
          $this->call(ProjectProcsSeeder::class);

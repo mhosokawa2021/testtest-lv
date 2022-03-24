@@ -40,12 +40,17 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Plan詳細
     Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
+
     // Creator詳細
     Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');
     // creator_plan
     Route::get('/request/c{creator_id}/p{plan_id}', [CreatorPlanController::class, 'request'])->name('creator_plan.request');
+   
+    // PlanRequest
     // プラン登録
     Route::post('/request/c{creator_id}/p{plan_id}/result', [PlanRequestController::class, 'store'])->name('request.store');
+    // 一覧取得
+    Route::get('/request/user/', [PlanRequestController::class, 'show'])->name('user-requests.show');
 
 
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');

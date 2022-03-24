@@ -31,4 +31,9 @@ class PlanRequest extends Model
     {
         return $this->belongsTo(CreatorPlan::class); // creatorPlanProcはcreatorPlanを一つ持つ
     }
+
+    public function PlanRequestProcs()
+    {
+        return $this->hasMany(PlanRequestProc::class); // freeRequestはfreeRequestProcを複数持てる
+    }
 }

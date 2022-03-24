@@ -15,21 +15,30 @@ class PlanRequestsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
         PlanRequest::create([
             'user_id' => 1,
             'creator_id' => 2,
-            'creator_plan_id' => 3,
-            'message' => 'user:1 creator:2 planid:3の依頼メッセージです。',
+            'order_type' => 'P',
+            'plan_title' => 'お手軽プラン',
+            'message' => 'user:1 creator:2 お手軽プラン依頼メッセージです。',
             'is_finished' => 0,
             'is_canceled' => 0
         ]);
-
         PlanRequest::create([
-            'user_id' => 3,
+            'user_id' => 1,
             'creator_id' => 2,
-            'creator_plan_id' => 4,
-            'message' => 'user:1 creator:2 planid:4の依頼メッセージです。',
+            'order_type' => 'P',
+            'plan_title' => '本格プラン',
+            'message' => 'user:1 creator:2 本格プランメッセージです。',
+            'is_finished' => 0,
+            'is_canceled' => 0
+        ]);
+        PlanRequest::create([
+            'user_id' => 1,
+            'creator_id' => 2,
+            'order_type' => 'F',
+            'plan_title' => '自由依頼',
+            'message' => 'user:1 creator:2 自由依頼プランメッセージです。',
             'is_finished' => 0,
             'is_canceled' => 0
         ]);

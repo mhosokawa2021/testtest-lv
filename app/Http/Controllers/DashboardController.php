@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Plan;
 use App\Models\Creator;
+use App\Models\PlanRequest;
 
 class DashboardController extends Controller
 {
@@ -16,7 +17,23 @@ class DashboardController extends Controller
      */
     public function index()
     {
-       return view('hello');
+    
+        $user_id = auth()->user()->id;
+        $data = PlanRequest::where('user_id',"=",$user_id)
+        ->Where('is_finished', '<>', 1)
+        ->Where('is_canceled', '<>', 1)
+        ->get();
+
+        $data2 = Plan::where('user_id',"=",$user_id)
+        ->Where('is_close', '<>', 1)
+        ->get();
+        
+        // dd($data->count());
+
+       return view('dashboard', [
+            'data' => $data->count(),
+            'data2' => $data2->count()
+        ]);
     }
 
     /* search */

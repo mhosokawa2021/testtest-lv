@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('plans', function (Blueprint $table) {
+        Schema::create('plan_request_procs', function (Blueprint $table) {
             $table->id();
-            $table->string('plan_title');
-            $table->text('plan_text');
-            $table->foreignId('user_id')->constrained();
-            $table->boolean('is_close');
+            $table->integer('sort_order');
+            $table->string('proc_name');
+            $table->integer('proc_number_max');
+            $table->integer('proc_number_min');
+            $table->foreignId('plan_request_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plans');
+        Schema::dropIfExists('plan_request_procs');
     }
 };
