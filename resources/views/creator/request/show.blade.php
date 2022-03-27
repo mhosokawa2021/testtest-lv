@@ -10,7 +10,8 @@
             @foreach($plan_proc as $proc)
                 <div>{{$proc->proc_name}}<div>
             @endforeach
-            <form action="/request/c{{ $creator_id }}/p{{ $plan_id }}/result" method="POST" >
+            <form action="{{ route('request.store',['creator_id'=>$creator_id, 'plan_id'=>$plan_id]) }}" method="POST" >
+            <!-- <form action="/request/creator={{ $creator_id }}/plan={{ $plan_id }}/result" method="POST" > -->
                 @csrf
                 <textarea class="block mx-auto" id="" rows="4" name="message"></textarea>
                 <button type='submit'

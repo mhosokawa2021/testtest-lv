@@ -11,7 +11,8 @@ class PlanRequest extends Model
     protected $fillable = [
         'user_id',
         'creator_id',
-        'creator_plan_id',
+        'order_type',
+        'plan_title',
         'message',
         'is_finished',
         'is_canceled'

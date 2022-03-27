@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/jquery_master.js') }}"></script>
 
     </head>
     <body class="font-sans antialiased">

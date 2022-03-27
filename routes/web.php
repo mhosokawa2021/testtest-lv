@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth']], function() {
     // PlanRequest
     // プラン登録
     Route::post('/request/creator={creator_id}/plan={plan_id}/result', [PlanRequestController::class, 'store'])->name('request.store');
+    Route::post('/frequest/creator={creator_id}/result', [PlanRequestController::class, 'fstore'])->name('frequest.store');
     // 一覧取得
     Route::get('/request/user/', [PlanRequestController::class, 'show'])->name('user-requests.show');
     // 自由依頼リクエスト

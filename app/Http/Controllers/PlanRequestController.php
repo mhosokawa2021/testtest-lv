@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\PlanRequest;
 use App\Models\FreeRequest;
+use App\Models\PlanRequestProc;
+use App\Models\CreatorPlan;
+use App\Models\CreatorPlanProc;
 
 class PlanRequestController extends Controller
 {
@@ -29,8 +32,10 @@ class PlanRequestController extends Controller
         //
     }
 
-    public function request(){
-        return view('creator.frequest.postreq');
+    public function request($creator_id){
+        return view('creator.frequest.request',[
+            'creator_id' => $creator_id
+        ]);
     }
 
     /**
@@ -45,12 +50,59 @@ class PlanRequestController extends Controller
         $planRequest = PlanRequest::create([
             'user_id' => auth()->user()->id,
             'creator_id' => $creator_id,
-            'creator_plan_id' => $plan_id,
+            'plan_title' => "atode settei",
+            'order_type' => "P",
             'message' => $request->message,
             'is_finished' => 0,
             'is_canceled' => 0
         ]);
+
+        // クリエイターplan_idから
+        $planProcs = CreatorPlanProc::where('creator_plan_id',"=",$plan_id)->get();
+
+        foreach ($planProcs as $proc) {
+            PlanRequestProc::create([
+                'sort_order' => $proc->sort_order,
+                'proc_name' => $proc->proc_name,
+                'proc_number_max' => $proc->proc_number_max,
+                'proc_number_min' => $proc->proc_number_min,
+                'plan_request_id' => $planRequest->id
+            ]);
+        }
         
+        return redirect()->route('dashboard.index');
+    }
+
+    /**
+     * free_request
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function fstore(Request $request,$creator_id){
+        // dd($request);
+
+        $planRequest = PlanRequest::create([
+            'user_id' => auth()->user()->id,
+            'creator_id' => $creator_id,
+            'plan_title' => $request->title,
+            'order_type' => "F",
+            'message' => $request->message,
+            'is_finished' => 0,
+            'is_canceled' => 0
+        ]);
+
+        foreach ($request->item as $idx => $item) {
+            PlanRequestProc::create([
+                'sort_order' => $idx,
+                'proc_name' => $item,
+                'proc_number_max' => $request->count[$idx],
+                'proc_number_min' => 1,
+                'plan_request_id' => $planRequest->id
+            ]);
+        }
+
         return redirect()->route('dashboard.index');
     }
 
