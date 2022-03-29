@@ -15,7 +15,7 @@ class ProjectProc extends Model
         'proc_name_order',
         'img_url',
         'is_checked',
-        'is_canceled',
+        'is_finished',
         'project_id'
     ];
 

@@ -53,7 +53,7 @@ class ProjectController extends Controller
                     'proc_name_order' => $i,
                     'img_url' => "",
                     'is_checked' => 0,
-                    'is_canceled' => 0,
+                    'is_finished' => 0,
                     'project_id' => $project->id
                 ]);
             }
@@ -63,7 +63,7 @@ class ProjectController extends Controller
         $PlanReq->update([
         'is_finished' => 1,
         ]);
-        
+
         return redirect()->route('dashboard.index');
 
     }

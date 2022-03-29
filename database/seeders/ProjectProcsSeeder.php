@@ -22,7 +22,7 @@ class ProjectProcsSeeder extends Seeder
             'proc_name' => 'ラフ',
             'img_url' => '',
             'is_checked' => 0,
-            'is_canceled' => 0,
+            'is_finished' => 0,
             'project_id' => 1
         ]);
         ProjectProc::create([
@@ -31,7 +31,7 @@ class ProjectProcsSeeder extends Seeder
             'proc_name' => 'ラフ',
             'img_url' => '',
             'is_checked' => 0,
-            'is_canceled' => 0,
+            'is_finished' => 0,
             'project_id' => 1
         ]);
         ProjectProc::create([
@@ -40,7 +40,7 @@ class ProjectProcsSeeder extends Seeder
             'proc_name' => 'ラフ',
             'img_url' => '',
             'is_checked' => 0,
-            'is_canceled' => 0,
+            'is_finished' => 0,
             'project_id' => 1
         ]);
 
@@ -51,7 +51,7 @@ class ProjectProcsSeeder extends Seeder
             'proc_name' => 'ラフ',
             'img_url' => '',
             'is_checked' => 0,
-            'is_canceled' => 0,
+            'is_finished' => 0,
             'project_id' => 2
         ]);
         ProjectProc::create([
@@ -60,7 +60,7 @@ class ProjectProcsSeeder extends Seeder
             'proc_name' => '線画',
             'img_url' => '',
             'is_checked' => 0,
-            'is_canceled' => 0,
+            'is_finished' => 0,
             'project_id' => 2
         ]);
         ProjectProc::create([
@@ -69,7 +69,7 @@ class ProjectProcsSeeder extends Seeder
             'proc_name' => '着彩',
             'img_url' => '',
             'is_checked' => 0,
-            'is_canceled' => 0,
+            'is_finished' => 0,
             'project_id' => 2
         ]);
     }

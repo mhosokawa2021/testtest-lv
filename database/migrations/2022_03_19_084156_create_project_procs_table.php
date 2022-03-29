@@ -20,7 +20,7 @@ return new class extends Migration
 		    $table->text('img_url');
             $table->integer('sort_order');
 	    	$table->boolean('is_checked');
-	    	$table->boolean('is_canceled');
+	    	$table->boolean('is_finished');
 		    $table->foreignId('project_id')->constrained();
             $table->timestamps();
         });
