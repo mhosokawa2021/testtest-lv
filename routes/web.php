@@ -50,7 +50,12 @@ Route::group(['middleware' => ['auth']], function() {
     // プラン登録
     Route::post('/request/creator={creator_id}/plan={plan_id}/result', [PlanRequestController::class, 'store'])->name('request.store');
     Route::post('/frequest/creator={creator_id}/result', [PlanRequestController::class, 'fstore'])->name('frequest.store');
-    // 一覧取得
+    // 詳細表示
+    Route::get('/request/user/request={plan_id}', [PlanRequestController::class, 'showDetail'])->name('user-request-detail.show');
+    
+    // 一覧取得(クリエイター相談中)
+    Route::get('/request/user/creator={creator_id}', [PlanRequestController::class, 'showCreator'])->name('creator-requests.show');
+    // 一覧取得(ユーザー相談中)
     Route::get('/request/user/', [PlanRequestController::class, 'show'])->name('user-requests.show');
     // 自由依頼リクエスト
     Route::get('/frequest/creator={creator_id}', [PlanRequestController::class, 'request'])->name('free_requests.request');

@@ -9,6 +9,7 @@ use App\Models\FreeRequest;
 use App\Models\PlanRequestProc;
 use App\Models\CreatorPlan;
 use App\Models\CreatorPlanProc;
+use App\Models\Creator;
 
 class PlanRequestController extends Controller
 {
@@ -118,6 +119,39 @@ class PlanRequestController extends Controller
         $user_id = auth()->user()->id;
         
         $PlanReq = PlanRequest::where('user_id',"=",$user_id)
+        ->Where('is_finished', '<>', 1)
+        ->Where('is_canceled', '<>', 1)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('dashboard.request.reqshow',[
+            'articles' => $PlanReq 
+        ]);
+    }
+
+    public function showDetail($plan_req_id)
+    {
+        $user_id = auth()->user()->id;
+        $creator_id = Creator::where('user_id',"=",$user_id)->first();
+
+        $PlanReq = PlanRequest::where('id',"=",$plan_req_id)->first();
+        $PlanProc = PlanRequestProc::where('plan_request_id',"=",$plan_req_id)
+        ->orderBy('sort_order')
+        ->get();
+
+        // dd($PlanProc);
+
+        return view('dashboard.request.detailshow',[
+            'my_creator_id' => $creator_id,
+            'plan_id' => $plan_req_id,
+            'datas' => $PlanReq,
+            'procs' => $PlanProc
+        ]);
+    }
+
+    public function showCreator($creator_id){
+        
+        $PlanReq = PlanRequest::where('creator_id',"=",$creator_id)
         ->Where('is_finished', '<>', 1)
         ->Where('is_canceled', '<>', 1)
         ->orderBy('created_at', 'desc')

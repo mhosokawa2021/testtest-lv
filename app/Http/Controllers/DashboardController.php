@@ -19,6 +19,7 @@ class DashboardController extends Controller
     {
     
         $user_id = auth()->user()->id;
+        // ユーザー相談中
         $data = PlanRequest::where('user_id',"=",$user_id)
         ->Where('is_finished', '<>', 1)
         ->Where('is_canceled', '<>', 1)
@@ -27,12 +28,22 @@ class DashboardController extends Controller
         $data2 = Plan::where('user_id',"=",$user_id)
         ->Where('is_close', '<>', 1)
         ->get();
-        
-        // dd($data->count());
 
-       return view('dashboard', [
+        // クリエイター相談中
+        $creator = Creator::where('user_id',"=",$user_id)->first();
+        if($creator){
+            $creator_reqs = PlanRequest::where('creator_id',"=",$creator->id)
+            ->Where('is_finished', '<>', 1)
+            ->Where('is_canceled', '<>', 1)
+            ->get();
+        }
+
+        // creatorはコントローラーでcountしない
+        return view('dashboard', [
             'data' => $data->count(),
-            'data2' => $data2->count()
+            'data2' => $data2->count(),
+            'creator_req' => $creator_reqs,
+            'creator_id' => $creator
         ]);
     }
 
