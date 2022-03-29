@@ -132,7 +132,7 @@ class PlanRequestController extends Controller
     public function showDetail($plan_req_id)
     {
         $user_id = auth()->user()->id;
-        $creator_id = Creator::where('user_id',"=",$user_id)->first();
+        $creator = Creator::where('user_id',"=",$user_id)->first();
 
         $PlanReq = PlanRequest::where('id',"=",$plan_req_id)->first();
         $PlanProc = PlanRequestProc::where('plan_request_id',"=",$plan_req_id)
@@ -142,9 +142,9 @@ class PlanRequestController extends Controller
         // dd($PlanProc);
 
         return view('dashboard.request.detailshow',[
-            'my_creator_id' => $creator_id,
+            'my_creator' => $creator,
             'plan_id' => $plan_req_id,
-            'datas' => $PlanReq,
+            'plan_req_datas' => $PlanReq,
             'procs' => $PlanProc
         ]);
     }

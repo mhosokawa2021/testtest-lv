@@ -8,6 +8,7 @@ use App\Http\Controllers\CreatorController; // 追記
 use App\Http\Controllers\DashboardController; // 追記
 use App\Http\Controllers\CreatorPlanController;
 use App\Http\Controllers\PlanRequestController;
+use App\Http\Controllers\ProjectController;
 
 
 /*
@@ -40,6 +41,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Plan詳細
     Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
+    // Project登録
+    Route::get('/project/register/creator={creator_id}/plan={plan_id}', [ProjectController::class, 'register'])->name('plan.register');
 
     // Creator詳細
     Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');

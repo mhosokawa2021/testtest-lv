@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'creator_id',
+        'is_finished',
+        'is_canceled'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class); // ユーザーに所属する
