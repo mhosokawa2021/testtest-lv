@@ -1,6 +1,6 @@
 <x-hello2 :type="$type">
   <div class="flex-1 text-gray-700">
-<div class="flex flex-wrap">
+<div class="flex flex-wrap max-w-screen-lg mx-auto">
       @if($articles->count() === 0)
                      <p>検索結果がありませんでした</p>
                  @else

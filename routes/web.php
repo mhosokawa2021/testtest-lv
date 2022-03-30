@@ -28,16 +28,16 @@ use App\Http\Controllers\ProjectController;
 // });
 
 Route::get('/', function () {
+    return view('topview');
+});
+
+Route::get('/top', function () {
     return view('top');
 });
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/search', [DashboardController::class, 'search'])->name('dashboard.search');
-
-    // Route::get('/hello', [HelloController::class, 'index'])->name('hello.index');
-    // // 検索お試し
-    // Route::get('/hello/search', [HelloController::class, 'search'])->name('hello.search');
 
     // Plan詳細
     Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
