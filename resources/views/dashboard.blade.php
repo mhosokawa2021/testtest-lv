@@ -17,16 +17,16 @@
             </div>
             <div class="grid grid-cols-2 row-gap-8 md:grid-cols-4">
               <div class="text-center">
-                <h6 class="text-3xl font-bold text-deep-purple-accent-400">{{ $data2 }}件</h6>
+                <h6 class="text-3xl font-bold text-deep-purple-accent-400">{{ $user_plan }}件</h6>
                 <p class="font-bold">募集中</p>
               </div>
               <div class="text-center">
-                <h6 class="text-3xl font-bold text-deep-purple-accent-400">{{ $data }}件</h6>
+                <h6 class="text-3xl font-bold text-deep-purple-accent-400">{{ $user_req }}件</h6>
                 <a href="{{ route('user-requests.show') }}"><p class="font-bold">相談中</p></a>
               </div>
               <div class="text-center">
-                <h6 class="text-3xl font-bold text-deep-purple-accent-400">0件</h6>
-                <p class="font-bold">製作中</p>
+                <h6 class="text-3xl font-bold text-deep-purple-accent-400">{{ $user_project }}件</h6>
+                <p class="font-bold"><a href="{{ route('user-project.show') }}"><p class="font-bold">製作中</a></p>
               </div>
               <div class="text-center">
                 <h6 class="text-3xl font-bold text-deep-purple-accent-400">0件</h6>
@@ -50,8 +50,8 @@
                 <a href="{{ route('creator-requests.show', ['creator_id'=> $creator_id ]) }}"><p class="font-bold">相談中</p></a>
               </div>
               <div class="text-center">
-                <h6 class="text-3xl font-bold text-deep-purple-accent-400">0件</h6>
-                <p class="font-bold">製作中</p>
+                <h6 class="text-3xl font-bold text-deep-purple-accent-400">{{ $creator_project->count() }}件</h6>
+                <a href="{{ route('creator-project.show', ['creator_id'=> $creator_id ]) }}"><p class="font-bold">製作中</p></a>
               </div>
               <div class="text-center">
                 <h6 class="text-3xl font-bold text-deep-purple-accent-400">0件</h6>
@@ -218,8 +218,8 @@
         </div>
 
         <div>
-          <div class="text-indigo-500 md:text-lg font-bold text-center">John McCulling</div>
-          <p class="text-gray-500 text-sm md:text-base text-center mb-3 md:mb-4">Founder / CEO</p>
+          <div class="text-indigo-500 md:text-lg font-bold text-center">{{ auth()->user()->name }}</div>
+          <p class="text-gray-500 text-sm md:text-base text-center mb-3 md:mb-4">依頼人 / Creator</p>
 
           <!-- social - start -->
           <div class="flex justify-center">

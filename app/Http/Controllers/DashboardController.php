@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Plan;
 use App\Models\Creator;
 use App\Models\PlanRequest;
+use App\Models\Project;
 
 class DashboardController extends Controller
 {
@@ -20,12 +21,17 @@ class DashboardController extends Controller
     
         $user_id = auth()->user()->id;
         // ユーザー相談中
-        $data = PlanRequest::where('user_id',"=",$user_id)
+        $user_req = PlanRequest::where('user_id',"=",$user_id)
         ->Where('is_finished', '<>', 1)
         ->Where('is_canceled', '<>', 1)
         ->get();
 
-        $data2 = Plan::where('user_id',"=",$user_id)
+        $user_project = Project::where('user_id',"=",$user_id)
+        ->Where('is_finished', '<>', 1)
+        ->Where('is_canceled', '<>', 1)
+        ->get();
+
+        $user_plan = Plan::where('user_id',"=",$user_id)
         ->Where('is_close', '<>', 1)
         ->get();
 
@@ -36,13 +42,20 @@ class DashboardController extends Controller
             ->Where('is_finished', '<>', 1)
             ->Where('is_canceled', '<>', 1)
             ->get();
+
+            $creator_project = Project::where('creator_id',"=",$creator->id)
+            ->Where('is_finished', '<>', 1)
+            ->Where('is_canceled', '<>', 1)
+            ->get();
         }
 
         // creatorはコントローラーでcountしない
         return view('dashboard', [
-            'data' => $data->count(),
-            'data2' => $data2->count(),
+            'user_req' => $user_req->count(),
+            'user_plan' => $user_plan->count(),
+            'user_project' => $user_project->count(),
             'creator_req' => $creator_reqs,
+            'creator_project' => $creator_project,
             'creator_id' => $creator
         ]);
     }

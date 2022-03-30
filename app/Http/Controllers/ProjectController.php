@@ -87,7 +87,47 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        $user_id = auth()->user()->id;
+
+        $Projects = Project::where('user_id',"=",$user_id)
+        ->Where('is_finished', '<>', 1)
+        ->Where('is_canceled', '<>', 1)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('dashboard.project.proshow',[
+            'projects' => $Projects
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     * クリエイター側プロジェクト一覧
+     * **/
+    public function showCreator($creator_id){
+        $Projects = Project::where('creator_id',"=",$creator_id)
+        ->Where('is_finished', '<>', 1)
+        ->Where('is_canceled', '<>', 1)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('dashboard.project.proshow',[
+            'projects' => $Projects
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     * プロジェクト詳細
+     * **/
+    public function showDetail($project_id){
+        $ProjectProcs = ProjectProc::where('project_id',"=",$project_id)
+        ->orderBy('sort_order', 'asc')
+        ->orderBy('proc_name_order', 'asc')
+        ->get();
+        return view('dashboard.project.detail',[
+            'projectprocs' => $ProjectProcs
+        ]);
     }
 
     /**
