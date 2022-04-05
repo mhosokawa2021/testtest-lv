@@ -43,6 +43,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
     // Project登録
     Route::get('/project/register/creator={creator_id}/plan={plan_id}', [ProjectController::class, 'register'])->name('plan.register');
+    // upload
+    Route::post('/project/upload/proc={project_procs_id}', [ProjectController::class, 'upload'])->name('project_img.register');
 
     // Creator詳細
     Route::get('/creator/{id}', [CreatorController::class, 'show'])->name('creator.show');

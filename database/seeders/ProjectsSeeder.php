@@ -18,12 +18,14 @@ class ProjectsSeeder extends Seeder
         Project::create([
             'user_id' => 1,
             'creator_id' => 2,
+            'project_title' => "テスト用タイトル",
             'is_finished' => 0,
             'is_canceled' => 0
         ]);
         Project::create([
             'user_id' => 3,
             'creator_id' => 2,
+            'project_title' => "テスト用タイトル",
             'is_finished' => 0,
             'is_canceled' => 0
         ]);

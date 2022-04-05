@@ -41,6 +41,7 @@ class ProjectController extends Controller
             $project = Project::create([
                 'user_id' => $PlanReq->user_id,
                 'creator_id' => $PlanReq->creator_id,
+                'project_title' => $PlanReq->plan_title,
                 'is_finished' => 0,
                 'is_canceled' => 0
             ]);
@@ -77,6 +78,28 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function upload(Request $request,$project_procs_id)
+    {
+        //保存先の指定
+        $img_directory_name = 'public/project/images/';
+        $img = $request->imgpath->store($img_directory_name);
+        
+        // ディレクトリの先頭パスを削除
+        $img = ltrim($img, $img_directory_name);
+
+        $post = ProjectProc::find($project_procs_id);
+        $post->img_url = $img;
+        $post->save();
+        
+        return back();
     }
 
     /**
@@ -125,6 +148,9 @@ class ProjectController extends Controller
         ->orderBy('sort_order', 'asc')
         ->orderBy('proc_name_order', 'asc')
         ->get();
+
+        // 配列に加工
+        $ProjectProcs = $ProjectProcs->groupBy('sort_order')->toArray();
         return view('dashboard.project.detail',[
             'projectprocs' => $ProjectProcs
         ]);

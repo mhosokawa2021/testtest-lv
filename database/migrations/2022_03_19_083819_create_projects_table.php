@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('creator_id')->constrained();
+            $table->string('project_title');
 	        $table->boolean('is_finished');
 	        $table->boolean('is_canceled');
 	        $table->timestamps();

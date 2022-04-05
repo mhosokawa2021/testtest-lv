@@ -12,7 +12,7 @@
                     </div>
                     <div class="mt-4 md:mt-0 md:ml-6">
                         <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold text-left">
-                        <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">依頼タイトル</a>
+                        <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">{{ $project->project_title }}</a>
                         <p class="mt-2 text-gray-600">{{ $project->created_at }}</p>
                    <a href="{{ route('user-project-detail.show', ['project_id'=> $project->id ]) }}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Read more
