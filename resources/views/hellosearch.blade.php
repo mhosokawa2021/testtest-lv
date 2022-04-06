@@ -10,7 +10,7 @@
                           <div class="rounded border p-3 w-1/3">
                               <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
-                                    <img class="rounded-t-lg" src="http://flat-icon-design.com/f/f_object_174/s512_f_object_174_0bg.png" alt="" />
+                                    <img class="rounded-t-lg" src="img/dummy.png" alt="" />
                                 </a>
                                 <div class="p-5">
                                     <a href="#">
@@ -54,7 +54,7 @@
           </div>
       </div>
       <div class="flex flex-col items-center pb-10">
-          <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="http://flat-icon-design.com/f/f_object_174/s512_f_object_174_0bg.png" alt="Bonnie image"/>
+          <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="img/dummy.png" alt="Bonnie image"/>
           <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $article->creator_name }}</h5>
           <span class="text-sm text-gray-500 dark:text-gray-400"> {{ $article->creator_text }}</span>
           <div class="flex mt-4 space-x-3 lg:mt-6">

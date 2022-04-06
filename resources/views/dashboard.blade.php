@@ -101,7 +101,7 @@
      <!-- person - start -->
       <div class="flex flex-col items-center bg-gray-100 rounded-lg p-4">
         <div class="w-24 md:w-32 h-24 md:h-32 bg-gray-200 rounded-full overflow-hidden shadow-lg mb-2 md:mb-4">
-          <img src="https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Radu Florin" class="w-full h-full object-cover object-center" />
+          <img src="img/dummy.png" loading="lazy" alt="Photo by Radu Florin" class="w-full h-full object-cover object-center" />
         </div>
 
         <div>

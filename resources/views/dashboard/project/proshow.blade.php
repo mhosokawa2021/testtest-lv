@@ -8,7 +8,7 @@
             <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex">
                     <div class="w-100">
-                        <img class="rounded-lg md:w-56" src="http://flat-icon-design.com/f/f_object_174/s512_f_object_174_0bg.png" alt="Woman paying for a purchase">
+                        <img class="rounded-lg md:w-56" src="/img/dummy.png" alt="">
                     </div>
                     <div class="mt-4 md:mt-0 md:ml-6">
                         <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold text-left">
