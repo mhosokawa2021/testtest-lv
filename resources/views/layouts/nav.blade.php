@@ -16,20 +16,12 @@
           </div>
           <div>
             <label class="inline-flex items-center m-1">
-              <input name="search_type" class="form-radio" type="radio" value="creator"
-                @if($type === "creator")
-                checked
-                @endif 
-              >
+              <input name="search_type" class="form-radio" type="radio" value="creator" checked>
               <span class="ml-2">クリエイター</span>
 
             </label>
             <label class="inline-flex items-center m-1">
-              <input name="search_type" class="form-radio" type="radio" value="project"
-                @if($type === "project")
-                checked
-                @endif 
-              >
+              <input name="search_type" class="form-radio" type="radio" value="project">
               <span class="ml-2">プロジェクト</span>
             </label>
           </div>
