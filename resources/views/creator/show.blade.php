@@ -187,7 +187,7 @@
      <!-- person - start -->
       <div class="flex flex-col items-center bg-gray-100 rounded-lg p-4">
         <div class="w-24 md:w-32 h-24 md:h-32 bg-gray-200 rounded-full overflow-hidden shadow-lg mb-2 md:mb-4">
-          <img src="http://flat-icon-design.com/f/f_object_174/s512_f_object_174_0bg.png" loading="lazy" alt="Photo by Radu Florin" class="w-full h-full object-cover object-center" />
+          <img src="/img/dummy.png" loading="lazy" alt="Photo by Radu Florin" class="w-full h-full object-cover object-center" />
         </div>
         <!-- stars - start -->
         <div class="flex gap-0.5 -ml-1 mb-1">
