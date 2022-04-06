@@ -19,6 +19,7 @@ class ProjectsSeeder extends Seeder
             'user_id' => 1,
             'creator_id' => 2,
             'project_title' => "テスト用タイトル",
+            'complete_img_url' => "",
             'is_finished' => 0,
             'is_canceled' => 0
         ]);
@@ -26,6 +27,7 @@ class ProjectsSeeder extends Seeder
             'user_id' => 3,
             'creator_id' => 2,
             'project_title' => "テスト用タイトル",
+            'complete_img_url' => "",
             'is_finished' => 0,
             'is_canceled' => 0
         ]);

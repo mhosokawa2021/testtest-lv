@@ -42,6 +42,7 @@ class ProjectController extends Controller
                 'user_id' => $PlanReq->user_id,
                 'creator_id' => $PlanReq->creator_id,
                 'project_title' => $PlanReq->plan_title,
+                'complete_img_url' => "",
                 'is_finished' => 0,
                 'is_canceled' => 0
             ]);

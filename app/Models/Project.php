@@ -12,6 +12,7 @@ class Project extends Model
         'user_id',
         'creator_id',
         'project_title',
+        'complete_img_url',
         'is_finished',
         'is_canceled'
     ];
