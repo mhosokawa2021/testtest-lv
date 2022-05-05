@@ -53,6 +53,20 @@ class PlanController extends Controller
         return view('plan.show', compact('plan','type','plan_msg'));
     }
 
+    public function show_list(){
+        $user_id = auth()->user()->id;
+        $plan = Plan::where('user_id',"=",$user_id)
+        ->Where('is_close', '<>', 1)
+        ->get();
+
+        return view('hellosearch', [
+            'articles' => $plan,
+            'keyword' => '',
+            'type' => 'project',
+            'show_list' => true
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

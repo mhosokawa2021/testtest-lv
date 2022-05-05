@@ -1,1 +1,1 @@
-<img src="/img/logo.png" alt="ぼやいったー" {{ $attributes }}>
+<img src="/img/logo_title.png" alt="チョイピク" style="background-color: black;padding: 3px 14px 13px;border-radius: 25px;">

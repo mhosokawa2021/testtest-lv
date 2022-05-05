@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/search', [DashboardController::class, 'search'])->name('dashboard.search');
 
     // Plan詳細
+    Route::get('/plan/user_list', [PlanController::class, 'show_list'])->name('plan.show_list');
     Route::get('/plan/{id}', [PlanController::class, 'show'])->name('plan.show');
     // Project登録
     Route::get('/project/register/creator={creator_id}/plan={plan_id}', [ProjectController::class, 'register'])->name('plan.register');

@@ -21,6 +21,10 @@ class DashboardController extends Controller
     
         $user_id = auth()->user()->id;
         // ユーザー相談中
+        $user_plan = Plan::where('user_id',"=",$user_id)
+        ->Where('is_close', '<>', 1)
+        ->get();
+
         $user_req = PlanRequest::where('user_id',"=",$user_id)
         ->Where('is_finished', '<>', 1)
         ->Where('is_canceled', '<>', 1)
@@ -29,10 +33,6 @@ class DashboardController extends Controller
         $user_project = Project::where('user_id',"=",$user_id)
         ->Where('is_finished', '<>', 1)
         ->Where('is_canceled', '<>', 1)
-        ->get();
-
-        $user_plan = Plan::where('user_id',"=",$user_id)
-        ->Where('is_close', '<>', 1)
         ->get();
 
         // クリエイター相談中
@@ -99,7 +99,8 @@ class DashboardController extends Controller
         return view('hellosearch', [
             'articles' => $articles,
             'keyword' => $word,
-            'type' => $search_type
+            'type' => $search_type,
+            'show_list' => false
         ]);
 
     }

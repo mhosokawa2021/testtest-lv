@@ -5,12 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>test</title>
+        <title>チョイピク</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
@@ -22,12 +23,11 @@
 
 <!-- Page Content -->
 <main>
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800 border-b sticky top-0">
+<nav class="nav bg-color dark:bg-gray-800 top-0">
 <div class="flex flex-wrap justify-between items-center mx-auto">
-  <div class="flex items-center">
-    <a href="#" class="flex items-center w-60">
-      <img src="/img/logo.png" class="mr-3 h-6 sm:h-10" alt="Flowbite Logo">
-      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Plzpic</span>
+  <div class="logo-wrapper flex items-center">
+    <a href="#" class="bk-color flex items-center">
+      <img src="img/logo_title.png" class="logo-title mr-3 h-6 sm:h-10" alt="Logo">
     </a>
   </div>
 <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -37,19 +37,6 @@
 </button>
 <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
   <ul class="flex items-center flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-  <li>
-  <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">TOP</a>
-  </li>
-  <li>
-  <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-  </li>
-  <li>
-    <a class="flex items-center text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-      </svg>
-    </a>
-  </li>
   <li>
 @auth 
     <x-dropdown align="right" width="48">
@@ -90,19 +77,15 @@
 </div>
 </nav>
 <!--  -->
-
-<div class="flex flex-wrap bg-gray-300 h-screen object-cover bg-no-repeat bg-center" style="background-image: url('/img/top.png')">
-<section class="text-gray-600 body-font mx-auto max-w-4xl">
-      <div class="sm:text-3xl text-2xl font-medium title-font text-gray-900" style="position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    font-size: 38px;
-    padding: 21px;
-    border-radius: 6px;">創作支援サービス</div>
+<div class="width100 bg-color">
+  <div class="home">
+    <div class="home-container">
+      <div class="test">
+        <div><img src="img/img_25.png" class="img_25"></div>
+      </div>
+    </div>
   </div>
-</section>
-</div>
+<div>
 
 <!--  -->
 </main>
