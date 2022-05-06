@@ -128,13 +128,10 @@ img {
 a,
 a:link,
 a:visited {
-    color: #2c86c3;
-    text-decoration: underline;
+    color: #6b7280;
 }
 
 a:hover {
-    color: #EE7E2C;
-    text-decoration: underline;
 }
 
 a:active {}

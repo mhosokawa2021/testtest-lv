@@ -5,13 +5,7 @@
         </div>
         <div class="inner__content_wrap">
             <div class="inner__left_content">
-                <div class="s_box">
-                    <div class="title">クリエイター検索</div>
-                    <div class="cp_iptxt">
-                        <input input type="text" name="keyword" id="search-keyword" placeholder="クリエイター名、タグ、キーワード...">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                    </div>
-                </div>
+                 @include('layouts.creator_box')
                 <div class="menu_box notice">
                     <div class="content_box">
                         <span class="title">募集中</span>

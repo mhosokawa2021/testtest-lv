@@ -19,24 +19,16 @@
                                     <div class="pj_msg_box">
                                         <div>{{ $msg->user->name }}
                                             @if($msg->user->creator->creator_name != null)
-                                            / {{ $msg->user->creator->creator_name }} 
-                                            <a href="{{ route('creator.show', ['id'=> $msg->user->creator->id ]) }}">◆</a>
+                                            / <a href="{{ route('creator.show', ['id'=> $msg->user->creator->id ]) }}">{{ $msg->user->creator->creator_name }} 
+                                            <i class="fas fa-envelope"></i></a>
                                             @endif
                                         <span style="font-size: 0.8rem;">2022-04-06 07:25:43</span></div>
                                         <p>{{ $msg->message }}</p>
                                     </div>
                             @endforeach
                             <div class="pj_msg_box">
-                                <div>ユーザー名 <span style="font-size: 0.8rem;">2022-04-06 07:25:43</span></div>
-                                <p>興味あります！！</p>
-                            </div>
-                            <div class="pj_msg_box">
-                                <div>ユーザー名 <span style="font-size: 0.8rem;">2022-04-06 07:25:43</span></div>
-                                <p>興味あります！！</p>
-                            </div>
-                            <div class="pj_msg_box">
-                                <div>ユーザー名 <span style="font-size: 0.8rem;">2022-04-06 07:25:43</span></div>
-                                <p>興味あります！！</p>
+                                <div>テストユーザー88 <span style="font-size: 0.8rem;">2022-04-06 07:25:43</span></div>
+                                <p>面白そうですね。</p>
                             </div>
                         </div>
                         <!-- form start -->

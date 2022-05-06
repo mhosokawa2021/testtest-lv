@@ -286,6 +286,10 @@ label#sidebar_btn {
     padding: 3px 5px;
 }
 
+.msg_headline a {
+    color: #19B3D3;
+}
+
 /* right */
 
 .inner__right_content .msg_box {}
@@ -410,6 +414,11 @@ label #sideber_btn {
     margin-right: 15px;
 }
 
+.pj_box .content_box.upimg img {
+    width: 100%;
+    margin-right: 15px;
+}
+
 .pj_box .content_box a span {
     display: block;
     font-weight: 600;
@@ -486,6 +495,11 @@ label #sideber_btn {
     margin: 10px 10px 0px;
     padding-bottom: 10px;
     border-bottom: 1px dashed #ccc;
+}
+
+.pj_detail_box .pj_msg_box a{
+    color: #000000;
+    text-decoration: underline;
 }
 
 .pj_detail_box .pj_msg_box.msg_form {
@@ -612,3 +626,79 @@ label #sideber_btn {
 }
 
 /* === irai itiran end === */
+
+/* === seisakusinko start === */
+
+.menu_box .cseq_box {
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.menu_box .cseq_box .c_seq_list {
+    display: flex;
+    gap: 20px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.menu_box .cseq_box .c_seq_list li {
+    flex-grow: 1;
+    text-align: center;
+    background-color: #ccc;
+}
+
+.menu_box .cseq_box .c_seq_list li::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        box-sizing: border-box;
+        width: 6px;
+        height: 6px;
+        border: 6px solid transparent;
+        border-left: 6px solid;
+        margin-left: 5px;
+}
+
+.menu_box .cseq_box .c_seq_list li:last-child:after{
+        content: none;
+}
+
+.menu_box .cseq_box .c_seq_list li.is_exist {
+    background-color: #19B3D3;
+    color: #fff;
+}
+
+.siko_wrapper{
+    background-color: #fff;
+}
+
+.siko_wrapper .title{
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.siko_wrapper .upload_wrapper{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* === seisakusinko end === */
+
+/* === jiyu_irai === */
+.free_form_box .title{
+    background-color: black;
+    color: white;
+    padding: 6px;
+}
+
+.free_form_box .content_box{
+    background-color: white;
+    padding: 56px 0px 88px;
+}

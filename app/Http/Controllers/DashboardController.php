@@ -66,7 +66,7 @@ class DashboardController extends Controller
     // あいまい検索
     $word = $request->keyword; //送信されたキーワード
     $search_type = $request->search_type; // 検索タイプの取得
-    
+
     if($search_type == "creator"){
         $creator_data = new Creator();
         $query = $creator_data->newQuery();

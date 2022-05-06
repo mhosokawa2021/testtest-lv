@@ -7,17 +7,9 @@
             <div class="inner__left_content">
                 <div class="s_box">
                   @if($type === "project")
-                    <div class="title">プロジェクト検索</div>
-                    <div class="cp_iptxt">
-                        <input type="text" placeholder="プロジェクト名、キーワード、タグ...">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                    </div>
+                    @include('layouts.project_box')
                   @else
-                    <div class="title">クリエイター検索</div>
-                    <div class="cp_iptxt">
-                        <input type="text" placeholder="クリエイター名、キーワード、タグ...">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                    </div>
+                    @include('layouts.creator_box')
                   @endif
                 </div>
                 <div class="pj_box">
