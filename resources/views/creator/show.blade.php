@@ -9,22 +9,22 @@
                   <div class="title">作品一覧</div>
                   <div class="content_box">
                       <a href="#" class="flex_item">
-                          <img src="{{ asset('img/p_icon.png')}}" alt="">
+                          <img src="{{ asset('img/c_img01.png')}}" alt="">
                       </a>
                       <a href="#" class="flex_item">
-                          <img src="{{ asset('img/p_icon.png')}}" alt="">
+                          <img src="{{ asset('img/c_img02.png')}}" alt="">
                       </a>
                       <a href="#" class="flex_item">
-                          <img src="{{ asset('img/p_icon.png')}}" alt="">
+                          <img src="{{ asset('img/c_img03.png')}}" alt="">
                       </a>
                   </div>
               </div>
               <div class="creator_box">
                   <div class="title">このクリエイターのプラン一覧</div>
                   <div class="content_box">
-                    <a href="{{ route('free_requests.request',['creator_id'=>$creator->id]) }}" class="flex_item plan">自由依頼</a>
+                    <a href="{{ route('free_requests.request',['creator_id'=>$creator->id]) }}" class="flex_item plan">自由依頼 / ¥500</a>
                       @foreach($creator_plans as $plan)
-                            <a href="{{ route('creator_plan.request',['creator_id'=>$plan->creator_id, 'plan_id'=>$plan->id]) }}" class="flex_item plan">{{ $plan->creator_plan_name }}</a> 
+                            <a href="{{ route('creator_plan.request',['creator_id'=>$plan->creator_id, 'plan_id'=>$plan->id]) }}" class="flex_item plan">{{ $plan->creator_plan_name }} / ¥300</a> 
                       @endforeach
                   </div>
               </div>
@@ -41,7 +41,7 @@
           <div class="inner__right_content">
               <div class="prof_box">
                   <div class="title">プロフィール</div>
-                  <div class="profile_img"></div>
+                  <div class="profile_img" style="background-image: url(../img/{{ $creator->img_url }});"></div>
                   <span class="c_name">{{ $creator->creator_name }}</span>
                   <div class="c_text">クリエイター</div>
                   <div class="c_list">

@@ -23,7 +23,7 @@
                           @if($type === "project")
                               @foreach($articles as $article)
                                 <a href="{{ route('plan.show', ['id'=>$article->id]) }}" class="flex_item">
-                                  <img src="{{ asset('img/p_icon.png')}}" alt="">
+                                  <img src="{{ asset('img/'.$article->img_url)}}" alt="">
                                   <div class="text_wrapper">
                                     <div class="text">
                                       <span>{{ $article->plan_title }}</span>
@@ -36,7 +36,7 @@
                             @else
                               @foreach($articles as $article)
                                 <a href="{{ route('creator.show', ['id'=>$article->id]) }}" class="flex_item">
-                                  <img src="{{ asset('img/p_icon.png')}}" alt="">
+                                  <img src="{{ asset('img/'.$article->img_url)}}" alt="">
                                   <div class="text_wrapper creator">
                                     <div class="text">
                                       <span>{{ $article->creator_name }}</span>

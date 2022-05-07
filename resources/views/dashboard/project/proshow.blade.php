@@ -12,7 +12,7 @@
                         <div class="content_box">
                             @foreach($projects as $project)
                             <a href="{{ route('user-project-detail.show', ['project_id'=> $project->id ]) }}" class="flex_item">
-                                <img src="{{ asset('img/p_icon.png')}}" alt="">
+                                <img src="{{ asset('img/'.$project->img_url)}}" alt="">
                                 <div class="text_wrapper creator">
                                     <div class="text">
                                     <p><span>{{ $project->project_title }}</span>{{ $project->created_at }}</p>

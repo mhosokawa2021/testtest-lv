@@ -28,7 +28,7 @@ class ProjectProcsSeeder extends Seeder
         ProjectProc::create([
             'sort_order' => 2,
             'proc_name_order' => 1,
-            'proc_name' => 'ラフ',
+            'proc_name' => '線画',
             'img_url' => '',
             'is_checked' => 0,
             'is_finished' => 0,
@@ -37,7 +37,7 @@ class ProjectProcsSeeder extends Seeder
         ProjectProc::create([
             'sort_order' => 3,
             'proc_name_order' => 1,
-            'proc_name' => 'ラフ',
+            'proc_name' => '着彩',
             'img_url' => '',
             'is_checked' => 0,
             'is_finished' => 0,

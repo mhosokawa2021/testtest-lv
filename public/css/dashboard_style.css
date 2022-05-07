@@ -521,7 +521,6 @@ label #sideber_btn {
 }
 
 .prof_box .profile_img {
-    background-image: url(../img/p_icon.png);
     background-size: contain;
     width: 180px;
     height: 180px;
@@ -539,6 +538,16 @@ label #sideber_btn {
 .prof_box .c_text {
     display: block;
     text-align: center;
+    display: block;
+    text-align: center;
+    background-color: #000000;
+    width: fit-content;
+    color: #ffffff;
+    border-radius: 13px;
+    padding: 1px 9px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 .prof_box .c_list dl {

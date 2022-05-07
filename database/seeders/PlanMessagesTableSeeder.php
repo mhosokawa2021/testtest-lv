@@ -16,9 +16,9 @@ class PlanMessagesTableSeeder extends Seeder
     public function run()
     {
         PlanMessage::create([
-            'message' => 'plan_id:1に対するuser_id:1からのなんかいい感じのプロジェクトのコメント',
+            'message' => '興味あります、話を聞かせてください。',
             'plan_id' => 1,
-            'user_id' => 1
+            'user_id' => 2
         ]);
 
         PlanMessage::create([

@@ -8,16 +8,20 @@
                     <div class="pj_detail_box">
                         <div class="title"> No.{{ $plan->id }} {{ $plan->plan_title }}</div>
                         <div class="detail_box">
-                            <div class="img_box"><img src="{{ asset('img/p_icon.png')}}" alt=""></div>
+                            <div class="img_box"><img src="{{ asset('img/'.$plan->img_url)}}" alt=""></div>
                             <div>
-                                 <span>{{ $plan->user->name }}</span>
+                                 <span>依頼者 : {{ $plan->user->name }}</span>
                                 <p>{{ $plan->plan_text }}</p>
+                                    <p>
+                                        <br>納期 : 5月末まで
+                                        <br>現代風のイラストが得意な方
+                                    </p>
                             </div>
                         </div>
                         <div>
                             @foreach($plan_msg as $msg)
                                     <div class="pj_msg_box">
-                                        <div>{{ $msg->user->name }}
+                                        <div>投稿者 : {{ $msg->user->name }}
                                             @if($msg->user->creator->creator_name != null)
                                             / <a href="{{ route('creator.show', ['id'=> $msg->user->creator->id ]) }}">{{ $msg->user->creator->creator_name }} 
                                             <i class="fas fa-envelope"></i></a>
@@ -27,7 +31,7 @@
                                     </div>
                             @endforeach
                             <div class="pj_msg_box">
-                                <div>テストユーザー88 <span style="font-size: 0.8rem;">2022-04-06 07:25:43</span></div>
+                                <div>投稿者 : テストユーザー88 <span style="font-size: 0.8rem;">2022-04-06 07:25:43</span></div>
                                 <p>面白そうですね。</p>
                             </div>
                         </div>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('creator_id')->constrained();
             $table->string('project_title');
+            $table->text('img_url');
             $table->text('complete_img_url');
 	        $table->boolean('is_finished');
 	        $table->boolean('is_canceled');

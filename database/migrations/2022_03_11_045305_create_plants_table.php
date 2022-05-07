@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('plan_title');
             $table->text('plan_text');
+            $table->text('img_url');
             $table->foreignId('user_id')->constrained();
             $table->boolean('is_close');
             $table->timestamps();

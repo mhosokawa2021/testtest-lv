@@ -17,17 +17,17 @@ class ProjectMessageTableSeeder extends Seeder
     {
         ProjectMessage::create([
             'project_id' => 1,
-            'user_id' => 1,
+            'user_id' => 2,
             'plan_request_id' => null,
             'free_request_id' => null,
-            'message' => 'project_id:1に対するuser_id:1からのなんかいい感じのプロジェクトのコメント',
+            'message' => '興味あります。',
         ]);
         ProjectMessage::create([
             'project_id' => 2,
-            'user_id' => 1,
+            'user_id' => 2,
             'plan_request_id' => null,
             'free_request_id' => null,
-            'message' => 'project_id:1に対するuser_id:1からのなんかいい感じのプロジェクトのコメント',
+            'message' => '興味あります2。',
         ]);
     }
 }
